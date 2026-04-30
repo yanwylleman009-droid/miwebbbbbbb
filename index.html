@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2113.65">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="es"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;DigitalProfit - Venta de Infoproductos&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;display=swap');</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>scroll-behavior: smooth;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.gradient-bg {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.glass-card {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.95);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(10px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(255, 255, 255, 0.2);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.bizum-color { color: #fe5e61; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.paypal-color { color: #003087; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.modal {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(0, 0, 0, 0.7);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 1000;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.active-modal { display: flex; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes fadeIn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>from { opacity: 0; transform: translateY(20px); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>to { opacity: 1; transform: translateY(0); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.animate-fade { animation: fadeIn 0.5s ease-out; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Estilos para las "portadas" de los productos */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.product-cover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 220px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.cover-notion { background: linear-gradient(45deg, #1a1a1a, #4a4a4a); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.cover-ia { background: linear-gradient(45deg, #00d2ff, #3a7bd5); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.cover-fitness { background: linear-gradient(45deg, #f9d423, #ff4e50); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="bg-slate-50 text-slate-900"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Navegación --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex justify-between h-16 items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex items-center gap-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center text-white shadow-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-bolt"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="text-xl font-bold tracking-tight"&gt;DigitalProfit&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="hidden md:flex space-x-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#productos" class="hover:text-indigo-600 transition"&gt;Productos&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#testimonios" class="hover:text-indigo-600 transition"&gt;Reseñas&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#" onclick="showAdmin()" class="bg-slate-100 px-4 py-2 rounded-full text-sm font-medium hover:bg-slate-200"&gt;Panel Admin&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="md:hidden text-2xl" onclick="toggleMenu()"&gt;&lt;i class="fas fa-bars"&gt;&lt;/i&gt;&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Hero Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;header class="relative overflow-hidden pt-16 pb-24 lg:pt-32 lg:pb-40 bg-white"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-4 py-2 rounded-full text-xs font-bold mb-8 animate-bounce"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;i class="fas fa-fire"&gt;&lt;/i&gt; MÁS DE 5.000 DESCARGAS ESTE MES</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-5xl lg:text-7xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Tus Herramientas &lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-transparent bg-clip-text gradient-bg"&gt;Digitales de Éxito&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-xl text-slate-600 max-w-2xl mx-auto mb-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Descarga recursos profesionales creados para ahorrarte meses de trabajo. Pago seguro y acceso instantáneo.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex flex-wrap justify-center gap-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#productos" class="px-10 py-5 gradient-bg text-white font-bold rounded-2xl shadow-2xl hover:scale-105 transition-transform text-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Empezar Ahora</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex flex-col items-center gap-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex gap-4 text-3xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fa-brands fa-paypal paypal-color hover:scale-110 transition cursor-help" title="Pago con PayPal"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-mobile-screen-button bizum-color hover:scale-110 transition cursor-help" title="Pago con Bizum"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fa-brands fa-cc-visa text-blue-600 hover:scale-110 transition cursor-help" title="Pago con Tarjeta"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter"&gt;Métodos 100% seguros&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Decoración Background --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-indigo-200 rounded-full blur-[120px] opacity-30"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-96 h-96 bg-purple-200 rounded-full blur-[120px] opacity-30"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Catálogo de Productos --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="productos" class="py-24 bg-slate-50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="text-center mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-4xl font-bold text-slate-900 mb-4"&gt;Nuestro Catálogo&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-slate-500"&gt;Seleccionamos solo los mejores recursos para ti&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Producto 1: Notion --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 flex flex-col h-full"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="product-cover cover-notion"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex flex-col items-center text-white"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="fas fa-tasks text-6xl mb-4 opacity-80"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-2xl font-black tracking-widest uppercase"&gt;NOTION PRO&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="absolute bottom-4 right-4 bg-white/20 backdrop-blur-md px-3 py-1 rounded-lg text-[10px] text-white font-bold"&gt;V. 4.0&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-8 flex flex-col flex-grow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex justify-between items-start mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="text-2xl font-bold text-slate-900 leading-tight"&gt;Mega Pack: El Sistema Notion&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="bg-indigo-100 text-indigo-700 text-[10px] font-black px-2 py-1 rounded uppercase tracking-tighter"&gt;Top 1&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-slate-600 text-sm mb-8 flex-grow"&gt;La arquitectura completa para gestionar proyectos, finanzas, hábitos y equipo en una sola herramienta.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center justify-between mt-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-slate-400 line-through text-sm"&gt;49€&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-3xl font-black text-slate-900"&gt;29.99€&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button onclick="openCheckout('Notion Pro System', 29.99)" class="bg-slate-900 text-white px-6 py-3 rounded-xl font-bold hover:bg-indigo-600 transition shadow-lg active:scale-95"&gt;Comprar&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Producto 2: IA --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 flex flex-col h-full"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="product-cover cover-ia"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex flex-col items-center text-white text-center px-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="fas fa-brain text-6xl mb-4 opacity-80"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-2xl font-black tracking-widest uppercase"&gt;MASTER IA 2026&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="absolute top-4 left-4 bg-yellow-400 text-slate-900 px-3 py-1 rounded-full text-[10px] font-black"&gt;POPULAR&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-8 flex flex-col flex-grow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="text-2xl font-bold text-slate-900 leading-tight"&gt;Guía: Automatización con IA&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-slate-600 text-sm mb-8 flex-grow"&gt;Domina ChatGPT, Midjourney y Claude. Incluye 500+ prompts validados para negocios.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center justify-between mt-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-slate-400 line-through text-sm"&gt;35€&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-3xl font-black text-slate-900"&gt;19.00€&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button onclick="openCheckout('Guía Master IA', 19.00)" class="bg-slate-900 text-white px-6 py-3 rounded-xl font-bold hover:bg-indigo-600 transition shadow-lg active:scale-95"&gt;Comprar&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Producto 3: Fitness --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 flex flex-col h-full"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="product-cover cover-fitness"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex flex-col items-center text-white"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="fas fa-utensils text-6xl mb-4 opacity-80"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-2xl font-black tracking-widest uppercase"&gt;FAST FITNESS&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-8 flex flex-col flex-grow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="text-2xl font-bold text-slate-900 leading-tight"&gt;Recetario: Nutrición Eficiente&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-slate-600 text-sm mb-8 flex-grow"&gt;Pierde grasa sin cocinar más de 20 minutos. Plan de 30 días incluido en formato PDF interactivo.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center justify-between mt-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-3xl font-black text-slate-900"&gt;9.95€&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button onclick="openCheckout('Recetario Fitness', 9.95)" class="bg-slate-900 text-white px-6 py-3 rounded-xl font-bold hover:bg-indigo-600 transition shadow-lg active:scale-95"&gt;Comprar&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Testimonios --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="testimonios" class="py-24 bg-white"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-bold mb-16"&gt;Lo que dicen nuestros clientes&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-1 md:grid-cols-3 gap-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="p-8 bg-slate-50 rounded-3xl text-left border border-slate-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex gap-1 text-yellow-400 mb-4 text-xs"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-star"&gt;&lt;/i&gt;&lt;i class="fas fa-star"&gt;&lt;/i&gt;&lt;i class="fas fa-star"&gt;&lt;/i&gt;&lt;i class="fas fa-star"&gt;&lt;/i&gt;&lt;i class="fas fa-star"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-slate-600 italic mb-6"&gt;"El pack de Notion me cambió la vida. Pensaba que sabía usarlo pero esto está a otro nivel."&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex items-center gap-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="w-10 h-10 rounded-full bg-indigo-200 flex items-center justify-center font-bold text-indigo-700"&gt;RL&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-sm font-bold"&gt;Ricardo L.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-[10px] text-slate-400"&gt;Emprendedor&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="p-8 bg-slate-50 rounded-3xl text-left border border-slate-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex gap-1 text-yellow-400 mb-4 text-xs"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-star"&gt;&lt;/i&gt;&lt;i class="fas fa-star"&gt;&lt;/i&gt;&lt;i class="fas fa-star"&gt;&lt;/i&gt;&lt;i class="fas fa-star"&gt;&lt;/i&gt;&lt;i class="fas fa-star"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-slate-600 italic mb-6"&gt;"Pagué por Bizum y en 2 segundos tenía el PDF en mi móvil. Brutal la rapidez."&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex items-center gap-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="w-10 h-10 rounded-full bg-pink-200 flex items-center justify-center font-bold text-pink-700"&gt;SG&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-sm font-bold"&gt;Sara G.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-[10px] text-slate-400"&gt;Diseñadora&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="p-8 bg-slate-50 rounded-3xl text-left border border-slate-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex gap-1 text-yellow-400 mb-4 text-xs"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-star"&gt;&lt;/i&gt;&lt;i class="fas fa-star"&gt;&lt;/i&gt;&lt;i class="fas fa-star"&gt;&lt;/i&gt;&lt;i class="fas fa-star"&gt;&lt;/i&gt;&lt;i class="fas fa-star"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-slate-600 italic mb-6"&gt;"La guía de IA es súper práctica. He automatizado mis correos y gano 1h al día."&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex items-center gap-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="w-10 h-10 rounded-full bg-green-200 flex items-center justify-center font-bold text-green-700"&gt;MA&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-sm font-bold"&gt;Marcos A.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-[10px] text-slate-400"&gt;Consultor&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Footer --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer class="bg-slate-900 text-slate-400 py-20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex justify-center items-center gap-2 mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center text-white shadow-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;i class="fas fa-bolt"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-white text-2xl font-black"&gt;DigitalProfit&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex justify-center gap-8 text-xs uppercase font-bold tracking-widest mb-10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#" class="hover:text-white transition"&gt;Privacidad&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#" class="hover:text-white transition"&gt;Condiciones&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#" class="hover:text-white transition"&gt;Contacto&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#" class="hover:text-white transition"&gt;Afiliados&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-xs opacity-50"&gt;© 2026 DigitalProfit. Todos los productos digitales tienen garantía de descarga del 100%.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- MODALES (Checkout, Éxito, Admin - Mantienen misma funcionalidad pero mejor UI) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="checkout-modal" class="modal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="bg-white w-full max-w-md p-8 rounded-[2.5rem] shadow-2xl animate-fade relative mx-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="closeModal('checkout-modal')" class="absolute top-8 right-8 text-slate-300 hover:text-slate-900 text-xl transition"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;i class="fas fa-times"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-black mb-1"&gt;Casi es tuyo&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p id="checkout-item" class="text-indigo-600 mb-8 font-bold"&gt;Producto seleccionado&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="bg-slate-50 p-6 rounded-2xl mb-8 flex justify-between items-center border border-slate-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-slate-500 font-medium"&gt;Total:&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span id="checkout-price" class="text-3xl font-black text-slate-900"&gt;0.00€&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button onclick="processPayment('Bizum')" class="w-full flex items-center justify-between p-5 rounded-2xl border-2 border-slate-100 hover:border-red-400 hover:bg-red-50 transition-all group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex items-center gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center bizum-color text-xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="fas fa-mobile-screen-button"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="font-bold text-lg"&gt;Pagar con Bizum&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button onclick="processPayment('PayPal')" class="w-full flex items-center justify-between p-5 rounded-2xl border-2 border-slate-100 hover:border-blue-400 hover:bg-blue-50 transition-all group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex items-center gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center paypal-color text-xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="fa-brands fa-paypal"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="font-bold text-lg"&gt;Pagar con PayPal&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-[10px] text-center text-slate-400 mt-8 font-medium"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Acceso inmediato tras completar el pago. &lt;br&gt; Revisado por seguridad bancaria SSL.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- MODAL DE ÉXITO --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="success-modal" class="modal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="bg-white w-full max-w-sm p-12 rounded-[3rem] shadow-2xl text-center animate-fade mx-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="w-24 h-24 gradient-bg text-white rounded-full flex items-center justify-center text-5xl mx-auto mb-8 shadow-xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;i class="fas fa-check"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-black mb-4 tracking-tight"&gt;¡Éxito Total!&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-slate-500 mb-10 leading-relaxed"&gt;Tu pedido ha sido procesado. Pulsa el botón para descargar tu archivo ahora mismo.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="closeModal('success-modal')" class="w-full py-5 gradient-bg text-white font-bold rounded-2xl shadow-xl hover:scale-105 transition-transform"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Descargar Ahora</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- MODAL DE ADMIN --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="admin-modal" class="modal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="bg-white w-full max-w-5xl h-[85vh] p-10 rounded-[3rem] shadow-2xl overflow-y-auto mx-4 relative border-8 border-slate-50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="closeModal('admin-modal')" class="absolute top-8 right-8 text-slate-400 hover:text-slate-900 text-xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;i class="fas fa-times"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2 class="text-4xl font-black tracking-tight"&gt;Escritorio del Dueño&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-slate-400 uppercase text-[10px] font-bold tracking-widest mt-1"&gt;DigitalProfit Analytics&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-green-100 text-green-700 px-6 py-3 rounded-2xl font-black text-xl shadow-sm border border-green-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Hoy: +245.50€</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-slate-50 p-6 rounded-3xl border border-slate-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-slate-400 text-[10px] font-black uppercase mb-2"&gt;Ventas Mes&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-3xl font-black"&gt;4.820€&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-2 text-green-500 text-xs font-bold"&gt;&lt;i class="fas fa-arrow-up"&gt;&lt;/i&gt; 12% vs ayer&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-slate-50 p-6 rounded-3xl border border-slate-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-slate-400 text-[10px] font-black uppercase mb-2"&gt;Pedidos&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-3xl font-black"&gt;152&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-slate-50 p-6 rounded-3xl border border-slate-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-slate-400 text-[10px] font-black uppercase mb-2"&gt;Visitantes&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-3xl font-black"&gt;12.4k&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-slate-50 p-6 rounded-3xl border border-slate-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-slate-400 text-[10px] font-black uppercase mb-2"&gt;Ticket Medio&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-3xl font-black"&gt;31.70€&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-1 lg:grid-cols-2 gap-10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="font-black text-xl mb-6 flex items-center gap-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-history text-indigo-500"&gt;&lt;/i&gt; Ventas Recientes</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center justify-between p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white transition"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="flex items-center gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600"&gt;&lt;i class="fas fa-user"&gt;&lt;/i&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;p class="font-black text-sm"&gt;pablo_dev@gmail.com&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;p class="text-[10px] text-slate-400"&gt;Notion Pro • Bizum&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="font-black text-slate-900"&gt;+29.99€&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center justify-between p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white transition"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="flex items-center gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center text-pink-600"&gt;&lt;i class="fas fa-user"&gt;&lt;/i&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;p class="font-black text-sm"&gt;lucia_ia@outlook.com&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;p class="text-[10px] text-slate-400"&gt;Master IA • PayPal&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="font-black text-slate-900"&gt;+19.00€&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-indigo-900 text-white p-8 rounded-[2.5rem] shadow-xl relative overflow-hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;i class="fas fa-rocket absolute -right-4 -bottom-4 text-9xl opacity-10"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="font-black text-2xl mb-4"&gt;Plan de Escalamiento&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="opacity-80 text-sm leading-relaxed mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>Tus anuncios en TikTok están funcionando. El producto "Notion Pro" tiene un ratio de recompra del 15%. Deberías crear una oferta de 'bundle' (Pack completo) por 45€ para aumentar tu beneficio por cliente.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="bg-white text-indigo-900 px-6 py-3 rounded-xl font-black text-sm"&gt;Ver Estrategia&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function openCheckout(item, price) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('checkout-item').innerText = item;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('checkout-price').innerText = price.toFixed(2) + '€';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('checkout-modal').classList.add('active-modal');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function closeModal(id) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById(id).classList.remove('active-modal');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function processPayment(method) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const btn = event.currentTarget;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const originalContent = btn.innerHTML;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>btn.innerHTML = '&lt;div class="flex items-center gap-4"&gt;&lt;div class="w-12 h-12 flex items-center justify-center"&gt;&lt;i class="fas fa-circle-notch fa-spin"&gt;&lt;/i&gt;&lt;/div&gt;&lt;span class="font-bold text-lg"&gt;Procesando...&lt;/span&gt;&lt;/div&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>btn.disabled = true;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>closeModal('checkout-modal');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('success-modal').classList.add('active-modal');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>btn.innerHTML = originalContent;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>btn.disabled = false;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}, 1800);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function showAdmin() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('admin-modal').classList.add('active-modal');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function toggleMenu() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Lógica simple para móvil</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.onclick = function(event) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (event.target.classList.contains('modal')) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>event.target.classList.remove('active-modal');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
